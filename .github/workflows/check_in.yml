@@ -42,7 +42,5 @@ jobs:
           TNT_PASSWORD: ${{ secrets[matrix.tnt_password] }}
           TNT_URL: ${{ secrets[matrix.tnt_url] }}
         run: |
-          sudo cp -p ./chrome/chromedriver /usr/bin/
-          chmod -R 777 /usr/bin/chromedriver
           python ./check_in.py
         shell: bash

@@ -19,8 +19,6 @@ class Checkin():
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--disable-dev-shm-usage')
-        # chromedriver = "/usr/bin/chromedriver"
-        # os.environ["webdriver.chrome.driver"] = chromedriver
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
         driver.get("https://www.google.com")
         driver.get(self.url)
