@@ -22,6 +22,7 @@ jobs:
         include:
           - tnt_username: TNT_USERNAME
             tnt_password: TNT_PASSWORD
+            tnt_url: TNT_URL
     
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -39,6 +40,7 @@ jobs:
         env:
           TNT_USERNAME: ${{ secrets[matrix.tnt_username] }}
           TNT_PASSWORD: ${{ secrets[matrix.tnt_password] }}
+          TNT_URL: ${{ secrets[matrix.tnt_url] }}
         run: |
           sudo cp -p ./chrome/chromedriver /usr/bin/
           chmod -R 777 /usr/bin/chromedriver
