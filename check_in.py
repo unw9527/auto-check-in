@@ -6,6 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 
 class Checkin():
     def __init__(self, email, password, url):
@@ -20,7 +21,6 @@ class Checkin():
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--disable-dev-shm-usage')
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
-        driver.get("https://www.google.com")
         driver.get(self.url)
         
         # login
@@ -35,8 +35,8 @@ class Checkin():
         try:
             WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, 'checkin'))).click()
             time.sleep(10)
-        except:
-            print('Has checked in today!')
+        except TimeoutException:
+            print('Has already checked in today!')
         driver.quit()
 
 if __name__ == '__main__':
