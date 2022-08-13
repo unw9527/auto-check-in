@@ -35,6 +35,7 @@ class Checkin():
         try:
             WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, 'checkin'))).click()
             time.sleep(10)
+            print('Check in successfully!')
         except TimeoutException:
             print('Has already checked in today!')
         driver.quit()
