@@ -24,7 +24,7 @@ class Checkin():
         driver.get(self.url)
         
         # login
-        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, 'email'))).send_keys(self.email)
+        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'email'))).send_keys(self.email)
         driver.find_element(By.ID, 'password').send_keys(self.password)
         driver.find_element(By.XPATH, '//*[@id="login-form"]/button').click()
         
