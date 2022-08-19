@@ -38,7 +38,7 @@ class Checkin():
             print('Check in successfully!')
         except TimeoutException:
             pass
-        if EC.element_to_be_clickable(By.XPATH, '//*[@id="dashboard-analytics"]/div[2]/div[2]/div[1]/div[1]/span/button'):
+        if EC.element_to_be_clickable((By.XPATH, '//*[@id="dashboard-analytics"]/div[2]/div[2]/div[1]/div[1]/span/button')):
             print('Has already checked in today!')
         else:
             raise Exception('Check in failed!')
