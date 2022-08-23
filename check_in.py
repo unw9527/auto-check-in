@@ -37,11 +37,10 @@ class Checkin():
             time.sleep(10)
             print('Check in successfully!')
         except TimeoutException:
-            pass
-        if EC.element_to_be_clickable((By.CLASS_NAME, 'btn btn-primary disabled btn-sm waves-effect waves-light float-right')):
-            print('Has already checked in today!')
-        else:
-            raise Exception('Check in failed!')
+            if EC.element_to_be_clickable((By.CLASS_NAME, 'btn btn-primary disabled btn-sm waves-effect waves-light float-right')):
+                print('Has already checked in today!')
+            else:
+                raise Exception('Check in failed!')
         driver.quit()
 
 if __name__ == '__main__':
