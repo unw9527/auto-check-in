@@ -33,7 +33,7 @@ class Checkin():
         
         # click check in button
         try:
-            WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, 'checkin'))).click()
+            WebDriverWait(driver, 40).until(EC.element_to_be_clickable((By.ID, 'checkin'))).click()
             time.sleep(10)
             print('Check in successfully!')
         except TimeoutException:
