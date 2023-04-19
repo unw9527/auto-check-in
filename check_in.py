@@ -29,15 +29,15 @@ class Checkin():
         driver.find_element(By.XPATH, '//*[@id="login-form"]/button').click()
         
         # click close button
-        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="tos_notify"]/div/div/div/div/div/button'))).click()
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH,'/html/body/div[2]/div/div/div[3]/button'))).click()
         
         # click check in button
         try:
-            WebDriverWait(driver, 40).until(EC.element_to_be_clickable((By.ID, 'checkin'))).click()
+            WebDriverWait(driver, 40).until(EC.element_to_be_clickable((By.CLASS_NAME, 'btn btn-icon icon-left btn-primary'))).click()
             time.sleep(10)
             print('Check in successfully!')
         except TimeoutException:
-            if EC.element_to_be_clickable((By.CLASS_NAME, 'btn btn-primary disabled btn-sm waves-effect waves-light float-right')):
+            if EC.element_to_be_clickable((By.CLASS_NAME, 'btn btn-icon disabled icon-left btn-primary')):
                 print('Has already checked in today!')
             else:
                 raise Exception('Check in failed!')
