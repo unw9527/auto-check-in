@@ -26,7 +26,7 @@ class Checkin():
         # login
         WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'email'))).send_keys(self.email)
         driver.find_element(By.ID, 'password').send_keys(self.password)
-        driver.find_element(By.CLASS_NAME, 'btn btn-primary btn-lg btn-block login').click()
+        driver.find_element(By.XPATH, '/html/body/div[1]/section/div/div/div/div[2]/form/div/div[5]/button').click()
         
         # click close button
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH,'/html/body/div[2]/div/div/div[3]/button'))).click()
